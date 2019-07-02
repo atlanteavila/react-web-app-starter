@@ -1,9 +1,11 @@
-import { Dashboard } from './pages/DashBoard';
+import DashBoard from './pages/DashBoard';
+import RequiresAuth from '../components/HOC/RequiresAuth';
+import { WithSessionContext } from '../components/HOC/WithSessionContext'
 
-export const Routes = [
+export const ProtectedRoutes = [
     {
-        path: '/DashBoard',
+        path: '/dashboard',
         exact: true,
-        component: DashBoard,
-    },
+        component: RequiresAuth(WithSessionContext(DashBoard)),
+    }
 ];

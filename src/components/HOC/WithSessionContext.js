@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SessionContextConsumer } from './session-context';
 
-export const withSessionContext = WrappedComponent => {
+export const WithSessionContext = WrappedComponent => {
   return props => (
     <SessionContextConsumer>
       {sessionContext => (
