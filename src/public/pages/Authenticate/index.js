@@ -28,23 +28,6 @@ const LoginContainer = styled.div`
     box-sizing: border-box;
     overflow: hidden;
 `
-/* const SwyftLogo = styled.img.attrs({
-    src: Logo
-})`
-    max-width: 40%;
-    height: auto;
-    display: block;
-    margin: 0 auto 15px;
-`
-const GoogleButton = styled.img.attrs({
-    src: GoogleBtn
-})`
-    max-width: 47%;
-    height: auto;
-    display: block;
-    margin: 30px auto 15px;
-    cursor: pointer;
-` */
 const BottomPart = styled.div`
     background-color:  #2c2c2c;
     height: ${bottomPartHeight};

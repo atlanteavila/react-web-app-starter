@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import LogoImg from '../../../assets/images/logo.png';
 
@@ -8,32 +9,44 @@ const Logo = styled.img.attrs({
 })`
     max-width: 100px;
 `
+const StyledLink = styled(
+    styled(Link)`
+      font-size: 16px;
+      font-weight: normal;
 
-export default () => {
+      &:hover {
+        text-decoration: underline;
+      },
+      &:active {
+        color: red;
+      }
+    `,
+    'active'
+  )`
+    color: red;
+  `;
+export default ({setItemInStorage}) => {
     return (
         <div className="znav-container znav-white" id="znav-container">
             <div className="container">
                 <nav className="navbar navbar-expand-lg">
-                    <a className="navbar-brand" href="./index.html">
+                    <Link className="navbar-brand" to="/">
                         <Logo />
-                    </a><button className="navbar-toggler" type="button"
+                    </Link><button className="navbar-toggler" type="button"
                         data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                         aria-expanded="false" aria-label="Toggle navigation"><span
                             className="hamburger hamburger--emphatic"><span className="hamburger-box"><span
                                 className="hamburger-inner"></span></span></span></button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav pos-lg-absolute absolute-centered-lg">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Pricing</a></li>
-                            <li><a href="#">Lainie's School</a></li>
-                            <li><a href="#">Download</a></li>
-
-                            <li><a href="#"><span className="fa fa-search"></span></a></li>
+                            <li><StyledLink to="/">Home</StyledLink></li>
+                            <li><StyledLink to="/features">Features</StyledLink></li>
+                            <li><StyledLink to="/pricing">Pricing</StyledLink></li>
+                            <li><StyledLink to="download">Download</StyledLink></li>
                         </ul>
                         <ul className="navbar-nav ml-auto">
-                            <li><a href="#">Sign In</a></li>
-                            <li><a className="btn btn-primary btn-capsule btn-sm" href="#">Sign Up</a></li>
+                            <li><StyledLink to="/authenticate">Sign In</StyledLink></li>
+                            <li><StyledLink className="btn btn-primary btn-capsule btn-sm" to="">Sign Up</StyledLink></li>
                         </ul>
                     </div>
                 </nav>

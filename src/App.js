@@ -3,6 +3,7 @@ import posed, { PoseGroup } from 'react-pose';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { SessionContextProvider } from './components/HOC/session-context';
 import { routes } from './routes';
+import NavBar from './components/Organisms/NavBar';
 import './assets/css/style.css';
 
 const RouteContainer = posed.div({
@@ -44,17 +45,18 @@ class App extends Component {
 		const { user, authenticated } = this.state;
 		return (
 			<SessionContextProvider value={{ user, authenticated, setSession: this.setSession }}>
-					<Router>
-						<Route
-							render={({ location }) => (
-								<PoseGroup>
-									<RouteContainer key={location.pathname || 'key'}>
-										<Switch location={location}>{routes()}</Switch>
-									</RouteContainer>
-								</PoseGroup>
-							)}
-						/>
-					</Router>
+				<Router>
+					<NavBar />
+					<Route
+						render={({ location }) => (
+							<PoseGroup>
+								<RouteContainer key={location.pathname || 'key'}>
+									<Switch location={location}>{routes()}</Switch>
+								</RouteContainer>
+							</PoseGroup>
+						)}
+					/>
+				</Router>
 			</SessionContextProvider>
 		)
 	}
